@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Arc Font';
+  src: url('/fonts/arc-font.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --background: 0 0% 96%;
+  --foreground: 220 20% 15%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 220 20% 15%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 220 20% 15%;
+
+  --primary: 160 70% 75%;
+  --primary-foreground: 220 20% 15%;
+
+  --secondary: 220 20% 96%;
+  --secondary-foreground: 220 20% 15%;
+
+  --muted: 220 20% 92%;
+  --muted-foreground: 220 20% 40%;
+
+  --accent: 220 20% 92%;
+  --accent-foreground: 220 20% 15%;
+
+  --destructive: 0 85% 60%;
+  --destructive-foreground: 220 20% 96%;
+
+  --border: 220 20% 88%;
+  --input: 220 20% 88%;
+  --ring: 160 70% 75%;
+
+  --radius: 0.5rem;
+
+  /* Arc specific colors */
+  --arc-green: 156, 96%, 69%;
+  --arc-dark-blue: 220, 20%, 15%;
+  --arc-light-gray: 220, 20%, 92%;
+  --arc-tunnel-gray: 0, 0%, 96%;
+}
+
+.dark {
+  --background: 220 20% 10%;
+  --foreground: 0 0% 96%;
+
+  --card: 220 20% 12%;
+  --card-foreground: 0 0% 96%;
+
+  --popover: 220 20% 12%;
+  --popover-foreground: 0 0% 96%;
+
+  --primary: 160 70% 75%;
+  --primary-foreground: 220 20% 10%;
+
+  --secondary: 220 20% 16%;
+  --secondary-foreground: 0 0% 96%;
+
+  --muted: 220 20% 16%;
+  --muted-foreground: 220 20% 70%;
+
+  --accent: 220 20% 16%;
+  --accent-foreground: 0 0% 96%;
+
+  --destructive: 0 62% 35%;
+  --destructive-foreground: 0 0% 96%;
+
+  --border: 220 20% 20%;
+  --input: 220 20% 20%;
+  --ring: 160 70% 75%;
+}
+
+body {
+  @apply bg-background text-foreground;
+  font-family: 'Arc Font', system-ui, sans-serif;
+  background-image: url('/images/arc-bg.webp');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  .arc-card {
+    @apply bg-background/50 backdrop-blur-sm border border-slate-300/10 rounded-lg overflow-hidden;
+  }
+
+  .arc-button {
+    @apply rounded-full transition-all;
+  }
+
+  .arc-button-primary {
+    @apply bg-[hsl(var(--arc-green))] text-[hsl(var(--arc-dark-blue))] hover:bg-[hsl(var(--arc-green))/90];
+  }
+
+  .arc-button-secondary {
+    @apply bg-[hsl(var(--arc-dark-blue))] text-white hover:bg-[hsl(var(--arc-dark-blue))/90];
+  }
+
+  .arc-text-glowing {
+    @apply font-bold text-[hsl(var(--arc-green))] drop-shadow-[0_0_10px_hsl(var(--arc-green))];
+  }
+
+  .arc-border {
+    @apply border border-slate-300/10;
+  }
+
+  .arc-tunnel-bg {
+    @apply bg-gradient-to-r from-[hsl(var(--arc-tunnel-gray))] via-white to-[hsl(var(--arc-tunnel-gray))];
+  }
+}
